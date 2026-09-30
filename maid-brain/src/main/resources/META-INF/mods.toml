@@ -7,9 +7,16 @@ issueTrackerURL = ""
 modId = "maid_brain"
 version = "${mod_version}"
 displayName = "Maid Brain (DSH Agent Bridge)"
+credits = "jxiao123580-hub / DSH"
 description = '''
-车万女仆附属 - AI 决策增强：注册自定义 AI Tool（侦察报告等），
-由本地 OpenAI 兼容 shim 驱动的大脑（DSH 会话 agent）做决策。
+车万女仆（Touhou Little Maid）附属模组 —— 用 LLM（DeepSeek 等）给女仆接入大脑，并为此提供 11 个自定义 AI 工具 + 3 组自动注入的上下文 + 多层自主行为。
+
+女仆因此能：对聊天栏、全图（/maidchat）直接对话；侦察生物；扫描世界/找到结构矿石；实时查合成配方；检索整合包任务书与全部模组物品；读懂整合包所有物品来源（谁掉落 / 村民交易 / 用哪种机器做）。
+
+自主行动（好感度 + 概率驱动）：受伤/入夜/雷雨/敌怪会主动搭话；濒死时给你回血祝福、防火、缓降、力量、幸运等 buff；危急时召唤铁傀儡护卫、威慑敌怪；每天随机赠你一件整合包物品；还会记长期记忆、列待办、存地标、常加载跟随、好感度影响脾气。
+
+指令：/maidchat <消息> 全图喊话 /maidload [on|off] 常加载。
+数据存于 config/maid_brain/（记忆/待办/地标/好感/每日礼物/物品索引），跨会话保留。
 '''
 
 [[dependencies.maid_brain]]
