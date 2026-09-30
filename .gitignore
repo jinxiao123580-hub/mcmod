@@ -1,0 +1,20 @@
+# b 构建与缓存（不提交，换机后重新编译）
+maid-brain/build/
+maid-brain/.gradle/
+maid-brain/staged-m2/
+.gradle/
+build/
+
+# 运行时数据（每台机独立）
+mailbox/requests/*.json
+mailbox/responses/*.json
+config/maid_brain/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# 空的嵌套仓库目录（另有它用，忽略）
+TLM-addon/

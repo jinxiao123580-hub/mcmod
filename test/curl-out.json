@@ -1,0 +1,1 @@
+{"id":"shim-mu99f09j","object":"chat.completion","created":1789875092,"model":"maid-brain","choices":[{"index":0,"message":{"role":"assistant","content":"（大脑回信格式坏了）"},"finish_reason":"stop"}]}

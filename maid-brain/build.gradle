@@ -1,0 +1,67 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = '0.22.1'
+group = 'com.dsh.maidbrain'
+
+base {
+    archivesName = 'maid_brain-forge'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+}
+
+repositories {
+    flatDir {
+        dir 'libs'
+    }
+    maven {
+        name = "TartaricAcid Maven"
+        url = "https://maven.tartaricacid.cn/releases"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+
+    // 车万女仆（宿主包内 1.5.3 jar，flatDir + fg.deobf 完整重映射）
+    compileOnly fg.deobf("libs:touhoulittlemaid-1.20.1:all")
+    runtimeOnly fg.deobf("libs:touhoulittlemaid-1.20.1:all")
+    // 女仆实用任务（宿主包内 1.4.0）
+    implementation fg.deobf("libs:maid_useful_task:1.4.0")
+}
+
+processResources {
+    def replaceProps = [mod_version: project.version]
+    inputs.properties replaceProps
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProps
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "maid_brain",
+                "Specification-Vendor"    : "DSH",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "DSH",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')

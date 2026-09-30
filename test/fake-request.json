@@ -1,0 +1,25 @@
+{
+  "model": "maid-brain",
+  "messages": [
+    { "role": "system", "content": "You are a maid. Use tools when needed." },
+    { "role": "user", "content": "女仆，附近有什么？" }
+  ],
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "query_game_context",
+        "description": "query game context by category",
+        "parameters": { "type": "object", "properties": { "category": { "type": "string" } }, "required": ["category"] }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "switch_follow_state",
+        "description": "toggle follow state",
+        "parameters": { "type": "object", "properties": { "enable": { "type": "boolean" } }, "required": ["enable"] }
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "test-resp-1",
+  "object": "chat.completion",
+  "created": 1700000000,
+  "model": "maid-brain",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "type": "function",
+            "function": { "name": "query_game_context", "arguments": "{\"category\":\"nearby_entities\"}" }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
